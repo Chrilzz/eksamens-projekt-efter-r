@@ -44,6 +44,14 @@ font-family: sans-serif;
     padding: 20px;
 }
 
-#varer{
+.Varer{
+    text-align: center;
+}
+
+.brugerformular {
+    text-align: center;
+}
+
+.logind-elleringenbruger{
     text-align: center;
 }
