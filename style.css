@@ -1,0 +1,49 @@
+#brugtskrammel{
+text-align: center;
+font-family: sans-serif;
+}
+
+
+.button-logind {
+    border: 0;
+    font-size: 16px;
+    padding: 12px 30px;
+    background: lightskyblue;
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+    border-radius: 30px;
+    position: absolute;
+    top: 12px;
+    right: 32px;
+}
+
+
+.button-opretannonce {
+    border: solid 1px;
+    font-size: 16px;
+    padding: 12px 30px;
+    background: white;
+    color: lightblue;
+    cursor: pointer;
+    font-family: sans-serif;
+    border-radius: 30px;
+    position: absolute;
+    top: 12px;
+    right: 150px;
+}
+
+.liste-kategorier{
+    font-family: sans-serif;
+    list-style:circle;
+    font-size: 16px;
+}
+
+.varercontainer{
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+#varer{
+    text-align: center;
+}
