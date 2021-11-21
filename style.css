@@ -58,5 +58,14 @@ font-family: sans-serif;
 
 .opretannonce {
     text-align: center;
-    
+
+}
+
+.profil {
+    text-align: center;
+}
+
+#profiladmin {
+    font-size: 24;
+    font-family: sans-serif;
 }
