@@ -9,8 +9,8 @@ app.listen(port, () => {
 
 // Linker HTML til min server
 //https://www.section.io/engineering-education/rendering-html-pages-as-a-http-server-response-using-node-js/?fbclid=IwAR2q2uimO4DI742PGdnqcSGby40PnYgrVnHri_EHpB2lIzKNAylKPgwVhss
-app.get("/home.html", (req, res) => {
-    res.sendFile(__dirname + "/home.html")
+app.get("/.home.html", (req, res) => {
+    res.sendFile(__dirname + "/.frontend")
 })
 //linker mit css funktionalitet til min server så mine designs virker og knapperne virker.
 //https://expressjs.com/en/starter/static-files.html
