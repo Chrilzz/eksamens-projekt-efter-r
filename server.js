@@ -7,14 +7,9 @@ app.listen(port, () => {
     console.log("server listening on port" +  port);
 }); 
 
-
 //linker mit css funktionalitet til min server så mine designs virker og knapperne virker.
 //https://expressjs.com/en/starter/static-files.html
 app.use(express.static("./frontend"));
 
-
-
 //for at det er muligt at lave input til serveren i tekststreng
 app.use(express.json)
-
-
