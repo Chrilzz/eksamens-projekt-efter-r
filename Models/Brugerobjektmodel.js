@@ -4,3 +4,5 @@ class bruger {
     this.Adgangskode = Adgangskode;
     }
 }
+
+module.exports = bruger
