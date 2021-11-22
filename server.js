@@ -7,6 +7,10 @@ app.listen(port, () => {
     console.log("server listening on port" +  port);
 }); 
 
+app.get("/", (req, res) => {
+    res.send("server oppe")
+})
+
 //linker mit css funktionalitet til min server så mine designs virker og knapperne virker.
 //https://expressjs.com/en/starter/static-files.html
 app.use(express.static("./frontend"));
