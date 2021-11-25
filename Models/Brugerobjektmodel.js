@@ -1,4 +1,4 @@
-class bruger {
+/* class bruger {
     constructor(Brugernavn, Adgangskode) {
     this.Brugernavn = Brugernavn;
     this.Adgangskode = Adgangskode;
@@ -6,3 +6,5 @@ class bruger {
 }
 
 module.exports = bruger
+
+*/

@@ -1,6 +1,8 @@
-// Ved brug af express.js opret en server, som lytter på port 8080, og som console loggerbeskeden: “Server lytter på port 8080”
+/* Ved brug af express.js opret en server, som lytter på port 8080, og som console loggerbeskeden: “Server lytter på port 8080”
 const express = require("express");
 const app = express();
+
+const BrugerController = require("./Controllers/Brugercontroller")
 
 const port = 8080
 app.listen(port, () => {
@@ -17,3 +19,7 @@ app.use(express.static("./frontend"));
 
 //for at det er muligt at lave input til serveren i tekststreng
 app.use(express.json)
+
+app.use("/brugere", BrugerController)
+
+*/
