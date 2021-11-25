@@ -1,4 +1,5 @@
 const opretBruger = e => {
+    
     let oprettelsesdata = {
         Brugernavn: document.getElementById("Brugernavn").value,
         Adgangskode: document.getElementById("Adgangskode").value
