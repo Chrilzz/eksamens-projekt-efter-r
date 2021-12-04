@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>LOG IND SIDE</h1>
 
 <! Kilde :https://www.w3schools.com/howto/howto_css_login_form.asp?fbclid=IwAR0Yrn9BlSEwesYueY23mzEBOpDZOviE48Ye2sNYX7TfebBebC6HoF34ZUY>
-<div class="brugerformular">
+<form id='brugerForm' Method='POST'>
     <P>
-        <label for="username"><b></b></label>
-        <input type="text" placeholder="Brugernavn" Name="brugernavn">
+    <input type="text" id="bruger-Navn" placeholder="Brugernavn" id="Brugernavn" Name="Brugernavn" required>
     </P>
-    <label for="Adgangskode"><b></b></label>
-    <input type="password" placeholder="Adgangskode" name="adgangskode" required>
-    <! log ind knap
+    <input type="password" id="adgangs-Kode" placeholder="Adgangskode" id="adgangskode" name="Adgangskode" required>
+
     <P>
-        <button type="button" onclick="login()">Log ind</button>
+    <button id="Logind">Log ind</button>
     </P>
-    <script src="script.js"></script>
+</form>
+    <script src="Logind.js"></script>
 </div> 
 </body>
 </html>

@@ -8,7 +8,7 @@ document.getElementById("opret-bruger").addEventListener("click", (e) => {
         adgangskode: adgangskodeværdi
     }
 console.log(nykonto)
-  
+
 fetch('http://localhost:8080/konto', {
     method: "POST",
     headers: {
