@@ -8,37 +8,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="opretannonce"> 
     <h1>Opret annonce</h1>
         <P>
-            <label for="salg"><b>Hvad vil du sælge?</b></label>
-            <input type="text" placeholder="Fx Tøj eller Sport">
+            <form id='ordrevalg' Method='POST'>
+            <class="listekategori">
+                <label for="kategori"><b>Hvilken kategori?</b></label>
+                <select id="kategori">
+                    <option value="biler">Biler </option>
+                    <option value="Camping">Camping </option>
+                    <option value="Biltilbehør">Biltilbehør </option>
+                    <option value="Boliger">Boliger </option>
+                    <option value="Have og Byg">Have og Byg </option>
+                    <option value="Til Boligen">Til Boligen </option>
+                    <option value="Til Børn">Til Børn </option>
+                    <option value="Tøj og mode">Tøj og mode </option>
+                    <option value="Sport og Fritid">Sport og Fritid </option>
+                    <option value="Både">Både </option>
+                    <option value="Cykler">Cykler </option>
+                </select>
+
+            </class>
+
         </P>
         <P>
             <label for="pris"><b>Hvad koster dit produkt?</b></label>
-            <input type="text" placeholder="Fx 340kr.">
+            <input type="text" id="pris" placeholder="Fx 340kr.">
         </P>
-        <P>
-            <! upload billede fra https://www.tutorialspoint.com/How-do-we-upload-external-file-on-a-website-using-HTML-forms?fbclid=IwAR1FfWuMn6tqNqvm8GbW6mcJinMzxJCMOWmN6f6hIy3eR9xrL1Tdjq8IFY0>
-            <label for="salg"><b>Billede af dit produkt</b></label>
-            <input type="file" name="Upload" accept="image/*">
-            <! Find ud af hvordan jeg uploader billeder>
-        </P>
+      
         <P>
             <label for="pris"><b>Hvad hedder dit produkt</b></label>
-            <input type="text" placeholder="Fx Langt halstørklæde">
+            <input type="text" id="navn" placeholder="Fx Langt halstørklæde">
         </P>
 
         <P>
-            <button type="submit">Upload din annonce</button>
+            <!upload billede fra https://www.tutorialspoint.com/How-do-we-upload-external-file-on-a-website-using-HTML-forms?fbclid=IwAR1FfWuMn6tqNqvm8GbW6mcJinMzxJCMOWmN6f6hIy3eR9xrL1Tdjq8IFY0>
+            <label for="salg"><b>Billede af dit produkt</b></label>
+            <input type="file" name="Upload" accept="image/*">
+            <!Find ud af hvordan jeg uploader billeder>
         </P>
 
+        <P>
+            <button id="upload">Opret annonce</button>
+        </P>
+    </form>
 
     </div> 
 
-
-
-</div>
-
+    
+<script src="opretannonce.js"></script>
+<!https://stackoverflow.com/questions/26107125/cannot-read-property-addeventlistener-of-null
 </body>
 </html>

@@ -82,7 +82,7 @@ fs.writeFileSync("brugerData.json", subtract)
 })
 
 
-//opdater oplysninger
+//opdater konto oplysninger
 app.post("/konto",(req, res) => { 
 
     let data = req.body 
@@ -92,3 +92,18 @@ app.post("/konto",(req, res) => {
 
 fs.writeFileSync('brugerData.json',JSON.stringify(req.body))
 })
+
+//opret ordre
+app.post("/ordre",(req, res) => { 
+
+    let ordredata = req.body 
+    console.log(typeof ordredata)
+
+      res.status(200).json("modtaget status"); 
+
+
+fs.writeFileSync('ordredata.json',JSON.stringify(req.body))
+  } 
+) 
+
+//fil til array, loade arrayet, pusher ny ordre, 
