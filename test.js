@@ -1,6 +1,6 @@
-function getSelectValue()
-{
-    var selectedValue = document.getElementById("list").value;
-    console.log(selectedValue);
-}
-getSelectValue();
+let annonce = "hej"
+annonce+="peter"
+console.log(annonce)
+
+
+

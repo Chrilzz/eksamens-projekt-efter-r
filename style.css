@@ -3,6 +3,20 @@ text-align: center;
 font-family: sans-serif;
 }
 
+.button-mineannoncer{
+    border: solid 1px;
+    font-size: 16px;
+    padding: 12px 30px;
+    background: white;
+    color: lightblue;
+    cursor: pointer;
+    font-family: sans-serif;
+    border-radius: 30px;
+    position: absolute;
+    top: 12px;
+    right: 150px;
+}
+
 
 .button-logind {
     border: 0;

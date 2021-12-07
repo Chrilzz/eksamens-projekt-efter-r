@@ -28,7 +28,6 @@ if (nykonto){
 */
 
 
-
  document.getElementById("slet").addEventListener("click", (e) => {
     e.preventDefault() 
     let sletkonto = JSON.parse(localStorage.getItem("nykonto"))
