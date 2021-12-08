@@ -3,6 +3,7 @@ text-align: center;
 font-family: sans-serif;
 }
 
+CSS FRA YOUTUBE VIDEO
 .button-mineannoncer{
     border: solid 1px;
     font-size: 16px;
@@ -17,6 +18,20 @@ font-family: sans-serif;
     right: 150px;
 }
 
+.button-rediger{
+    border: solid 1px;
+    font-size: 16px;
+    padding: 12px 30px;
+    background: white;
+    color: lightblue;
+    cursor: pointer;
+    font-family: sans-serif;
+    border-radius: 30px;
+    position: absolute;
+    top: 12px;
+    right: 200px;
+
+}
 
 .button-logind {
     border: 0;
@@ -82,3 +97,50 @@ font-family: sans-serif;
     font-family: sans-serif;
 }
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align:center; 
+}
+
+.button {
+width: 100px;
+height: 100px;
+vertical-align: top;
+color: black;
+padding: 10px;
+font-family: sans-serif;
+
+
+
+}
+
+.tabelID {
+width: 100px;
+height: 100px;
+vertical-align: top;
+background-color: aliceblue;
+color: black;
+border: 2px solid green
+}
+
+.button-home {
+border: 0;
+font-size: 16px;
+padding: 12px 30px;
+background: lightskyblue;
+color: white;
+cursor: pointer;
+font-family: sans-serif;
+border-radius: 30px;
+position: absolute;
+top: 12px;
+left: 32px;
+}
+
+.buttonsalign {
+    text-align: center;
+}

@@ -1,14 +1,3 @@
-// laver en eventlistener som loader hele siden og tjekker om brugeren på side findes i local storage
-// If tjekker om der er et obejkt, ved navn nykonto i localstorage
-// Else relokerer til logind siden.
-document.addEventListener("DOMContentLoaded", (e) => {
-    e.preventDefault
-    const nykonto = localStorage.getItem("nykonto")
-if (nykonto){
-    { return }
- } else {window.alert("Du er ikke logget ind"), location.href = "/logind.html"}
-
-})
 document.getElementById("tabel").addEventListener("click", async (e) => { 
     e.preventDefault()
     
@@ -18,6 +7,14 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
             .catch(err => console.log(err))
     
         let parseresult = JSON.parse(result)
+        let parseresult2 = JSON.stringify(parseresult)
+        let arraystring = []
+        arraystring.push(parseresult2)
+
+        var biler = JSON.parse(result).filter(function(entry) {
+            return entry.kategori === "Sport og Fritid"
+        })
+        
     
         let actualtable = `
         <tr>
@@ -29,7 +26,7 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
         `
         
         
-        parseresult.forEach((element) => {
+        biler.forEach((element) => {
             actualtable +=`
                 <tr>
                     <td>${element.kategori}</td>
@@ -39,9 +36,7 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
                 </tr>` 
         })
         annoncetabel.innerHTML = actualtable
+        
+        
     })
-
-
-
-
-
+    

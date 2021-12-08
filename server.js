@@ -4,7 +4,7 @@ const express = require("express");
 const formData = require('express-form-data')
 const app = express();
 const fs = require('fs');
-const { off } = require("process");
+const { off, allowedNodeEnvironmentFlags } = require("process");
 
 const port = 8080
 app.listen(port, () => {
@@ -97,19 +97,7 @@ app.post("/konto",(req, res) => {
 fs.writeFileSync('brugerData.json',JSON.stringify(req.body))
 })
 
-/*opret ordre
-app.post("/ordre",(req, res) => { 
 
-    let ordredata = req.body 
-    console.log(typeof ordredata)
-
-      res.status(200).json("modtaget status"); 
-
-
-fs.writeFileSync('ordredata.json',JSON.stringify(req.body))
-  } 
-) 
-*/
 
 // til upload af billeder til fil /uploads
 // fulgte edris video https://www.youtube.com/watch?v=7aTGmAo2EnM
@@ -125,7 +113,7 @@ const products = []
 app.post('/ordre',(req, res) => {
     let { kategori, pris, navn } = req.body
     let billede = req.files.billede.path.replace('\\', '/')
-    products.push({kategori, pris, navn, billede})
+    products.push({billede, kategori, pris, navn})
 
     console.log(products)
 
@@ -161,11 +149,39 @@ app.get("/annoncer", (req, res) => {
 
 
 
+//rediger annonce
+app.put("/edit", (req, res) => {
 
-/*
+    console.log(req.body)
+    console.log(typeof req.body)
+    let varerkatalog = JSON.parse(fs.readFileSync('ordredata.json'))
+    
+    console.log("tis")
+
+
+    for (let i = 0; i < varerkatalog.length; i++) {
+        if(varerkatalog[i].billede == req.body.billede){
+         varerkatalog[i].kategori = req.body.kategori
+         varerkatalog[i].pris = req.body.pris
+         varerkatalog[i].navn = req.body.navn
+         
+    }}
+    fs.writeFileSync("ordredata.json", JSON.stringify(varerkatalog))
+    res.status(200).json("hej")
+    })
+
+//slet annonce
+app.delete("/slet", (req, res) => {
+data = (req.body)
+console.log(data)
+res.status(200).json("Hej")
+
+})
+
+
 
 app.delete("/delete", (req, res) => {
-    data = (req.body)
+  data = (req.body)
 console.log(data)
 console.log(typeof data)
 let datastring = JSON.stringify(data)
@@ -186,4 +202,9 @@ console.log(typeof subtract)
 console.log(datastring)
 console.log(typeof datastring)
 
-*/
+fs.writeFileSync("brugerData.json", subtract)
+
+
+  res.status(200).json("hej")
+
+})
