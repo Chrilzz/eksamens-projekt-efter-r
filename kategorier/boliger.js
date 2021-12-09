@@ -6,11 +6,6 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
             .then(response => response.json())
             .catch(err => console.log(err))
     
-        let parseresult = JSON.parse(result)
-        let parseresult2 = JSON.stringify(parseresult)
-        let arraystring = []
-        arraystring.push(parseresult2)
-
         var biler = JSON.parse(result).filter(function(entry) {
             return entry.kategori === "Boliger"
         })

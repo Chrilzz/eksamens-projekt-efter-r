@@ -41,7 +41,7 @@ document.getElementById("tabel").addEventListener("click", async () => {
     annoncetabel.innerHTML = actualtable
 })
 
-// benytter mig af thomads panopto videor, 5. array fs 
+// benytter mig af thomas panopto videor, 5. array fs 
 //https://cbs.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=10d72724-da47-4141-9643-adeb0118f9c4
 let opdatervarer = document.getElementById("opdatervarer")
 
@@ -60,9 +60,6 @@ opdatervarer.addEventListener("click", (e) => {
         billede: billedeværdi.value
     
     }
-
-console.log(opdateretvarer)
-console.log(JSON.stringify(opdateretvarer))
 
 fetch("http://localhost:8080/edit", {
     method: "PUT",

@@ -71,7 +71,7 @@ fs.writeFileSync("brugerData.json", subtract)
 
 
 
-// til upload af billeder til fil /uploads
+// Oprettelse af annonce og upload af billeder til fil /uploads
 // fulgte edris video https://www.youtube.com/watch?v=7aTGmAo2EnM
 app.use('/uploads', express.static('uploads'))
 
@@ -86,50 +86,29 @@ app.post('/ordre',(req, res) => {
     let { kategori, pris, navn } = req.body
     let billede = req.files.billede.path.replace('\\', '/')
     products.push({billede, kategori, pris, navn})
-
-    console.log(products)
-
-   //
-    /*let loadfil = JSON.parse(fs.readFileSync('ordredata.json'))
-    console.log(loadfil)*/
     
-
     fs.writeFileSync('ordredata.json',JSON.stringify(products))
 
-
     res.redirect('/opretannonce.html')
-}
-)
+})
 
 //Se mine annoncer
+// metode fra Edris video
+// https://www.youtube.com/watch?v=SoyJmZ7KexQ&t=4s
 app.get("/annoncer", (req, res) => {
-    stock = req.body
-    console.log(stock)
-    console.log (typeof stock)
     let læsJSONfil = JSON.parse(fs.readFileSync("ordredata.json"))
 
     let Stringlæsfil = JSON.stringify(læsJSONfil)
-    console.log(læsJSONfil)
-    console.log(typeof læsJSONfil)
-
-    console.log(typeof Stringlæsfil)
-    console.log(Stringlæsfil)
 
     res.status(200).json(Stringlæsfil)
-    
 })
 
 
 
 //rediger annonce
+//metode fra thomas panopto videor, 5. array fs 
 app.put("/edit", (req, res) => {
-
-    console.log(req.body)
-    console.log(typeof req.body)
     let varerkatalog = JSON.parse(fs.readFileSync('ordredata.json'))
-    
-    console.log("tis")
-
 
     for (let i = 0; i < varerkatalog.length; i++) {
         if(varerkatalog[i].billede == req.body.billede){

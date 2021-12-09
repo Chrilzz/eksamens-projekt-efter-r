@@ -1,3 +1,5 @@
+// Koncept er fra Edris video, fra godkendelsesopgave 3
+// Der sendes en get request
 document.getElementById("tabel").addEventListener("click", async () => { 
     let annoncetabel = document.getElementById('annoncetabel')
     
@@ -29,6 +31,3 @@ document.getElementById("tabel").addEventListener("click", async () => {
     annoncetabel.innerHTML = actualtable
 })
 
-
-
-//kategori {{{{pris navn billede{±±}±

@@ -5,16 +5,13 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
         let result = await fetch('http://localhost:8080/annoncer', {method: "GET",})
             .then(response => response.json())
             .catch(err => console.log(err))
-    
-        let parseresult = JSON.parse(result)
-        let parseresult2 = JSON.stringify(parseresult)
-        let arraystring = []
-        arraystring.push(parseresult2)
-
+        // metode fra https://www.digitalocean.com/community/tutorials/js-filter-array-method
+        // (entry) reffere det nuværende element i arrayet, filter() checker conditionen stemmer overens
+        // med resulstatet der ledes efter, som i dette tilfælde er katergorien "biler"
         var biler = JSON.parse(result).filter(function(entry) {
             return entry.kategori === "biler"
         })
-        
+        console.log(biler)
     
         let actualtable = `
         <tr>
@@ -36,13 +33,5 @@ document.getElementById("tabel").addEventListener("click", async (e) => {
                 </tr>` 
         })
         annoncetabel.innerHTML = actualtable
-        
-        console.log(biler)
-        console.log(typeof biler)
-        console.log(parseresult)
-        console.log(typeof parseresult)
-        console.log(result)
-        console.log(typeof result)
-        console.log(arraystring)
     })
     
