@@ -1,10 +1,9 @@
 //Ved brug af express.js opret en server, som lytter på port 8080, og som console loggerbeskeden: “Server lytter på port 8080”
-const { json } = require("express");
+const exp = require("constants");
 const express = require("express");
 const formData = require('express-form-data')
 const app = express();
 const fs = require('fs');
-const { off, allowedNodeEnvironmentFlags } = require("process");
 
 const port = 8080
 app.listen(port, () => {
@@ -17,26 +16,25 @@ app.get("/", (req, res) => {
 
 
 
+
 //linker mit css funktionalitet til min server så mine designs virker og knapperne virker.
 //https://expressjs.com/en/starter/static-files.html
 app.use(express.static('./'))
+app.use('/', express.static('kategorier'))
+app.use('/', express.static('frontend'))
+
 
 //for at det er muligt at lave input til serveren i tekststreng
 app.use(express.json())
 
-//Gemmer bruger JSONFIL så server kan læse den
+//Gemmer bruger i JSONFIL så server kan læse den
 //_______________________________________
-
 app.post("/konto",(req, res) => { 
-
-    let data = req.body 
+  
 
       res.status(200).json("modtaget status"); 
-
-
-fs.writeFileSync('brugerData.json',JSON.stringify(req.body))
-  } 
-); 
+      fs.writeFileSync('brugerData.json',JSON.stringify(req.body))
+}); 
 
 //Login funktion
 app.post("/login", (req, res) => {
@@ -51,51 +49,25 @@ app.post("/login", (req, res) => {
         else {res.status(400).json("Forkert")}
     } 
     else {res.status(400).json("Forkert")}
-    //JSON.parse(fs.readFileSync('brugerData.json'))
     
 })
 
 //Slet konto funktion
 app.delete("/delete", (req, res) => {
     data = (req.body)
-console.log(data)
-console.log(typeof data)
+
 let datastring = JSON.stringify(data)
 let læsfil = JSON.parse(fs.readFileSync("brugerData.json"))
 
-console.log(læsfil)
-console.log(typeof læsfil)
-
-
 let læsfilstring = JSON.stringify(læsfil)
-console.log(læsfilstring)
-
 
 let subtract = læsfilstring.replace(datastring,"")
-console.log(subtract)
-console.log(typeof subtract)
-
-console.log(datastring)
-console.log(typeof datastring)
 
 fs.writeFileSync("brugerData.json", subtract)
 
-
-    res.status(200).json("hej")
-
+    res.status(200).json("Slettet")
 })
 
-
-//opdater konto oplysninger
-app.post("/konto",(req, res) => { 
-
-    let data = req.body 
-
-      res.status(200).json("modtaget status"); 
-
-
-fs.writeFileSync('brugerData.json',JSON.stringify(req.body))
-})
 
 
 
@@ -180,31 +152,31 @@ res.status(200).json("Hej")
 
 
 
-app.delete("/delete", (req, res) => {
-  data = (req.body)
-console.log(data)
-console.log(typeof data)
-let datastring = JSON.stringify(data)
-let læsfil = JSON.parse(fs.readFileSync("brugerData.json"))
+//Sletning af varer
 
-console.log(læsfil)
-console.log(typeof læsfil)
+/*
+let sletvarer = document.getElementById("sletvarer")
 
+    sletvarer.addEventListener("click", (e) => {
+        e.preventDefault();
 
-let læsfilstring = JSON.stringify(læsfil)
-console.log(læsfilstring)
+        let unikbillede = document.getElementById('sletbillede').value;
+        let unikbillede2 = JSON.stringify(unikbillede)
+        console.log(unikbillede)
+        console.log(typeof unikbillede)
+        console.log(typeof unikbillede2)
+        console.log(unikbillede2)
 
+        fetch('http://localhost:8080/slet', {
+        method: "DELETE",
+        headers: {
+        'content-Type': 'application/json'
+    },
+        body: unikbillede
+        }).then(response => response.json())
 
-let subtract = læsfilstring.replace(datastring,"")
-console.log(subtract)
-console.log(typeof subtract)
-
-console.log(datastring)
-console.log(typeof datastring)
-
-fs.writeFileSync("brugerData.json", subtract)
-
-
-  res.status(200).json("hej")
 
 })
+
+*/
+

@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault
+    const nykonto = localStorage.getItem("nykonto")
+if (nykonto){
+    { return }
+ } else {window.alert("Du er ikke logget ind"), location.href = "/logind.html"}
+})
+
+
 document.getElementById("opdaterprofil").addEventListener("click", (e) => { 
     e.preventDefault() 
     let brugernavnværdi = document.getElementById("bruger-Navn").value
@@ -20,21 +29,16 @@ fetch('http://localhost:8080/konto', {
 )
  })
 
- // slet bruger
-/*
-const nykonto = localStorage.getItem("nykonto")
-if (nykonto){
-    location.href = "/home.html"
-*/
-
-
+// slet bruger
+//Når der trykkes på slet knappen. oprettes en variabel "sletkonto", som går ind og henter "nykonto" fra localstorage og det til et objekt.
+//Derefter formattere vi dataen "nykonto" til string vha JSON.stringify i variablen "lars"
+//Der laves et Delete fetch request, hvor lars sendes i bodyen.
+//Hvis der kommer respons fra serveren, sletter vi Stringen nykonto fra localstorage, og man bliver redirected til opretbruger.html
  document.getElementById("slet").addEventListener("click", (e) => {
     e.preventDefault() 
     let sletkonto = JSON.parse(localStorage.getItem("nykonto"))
-    console.log(sletkonto)
 
     let lars = JSON.stringify(sletkonto)
-    console.log(lars)
     
     fetch('http://localhost:8080/delete', {
     method: "DELETE",
@@ -43,10 +47,8 @@ if (nykonto){
     },
     body: lars
 }).then(response => response.json())
-.then(localStorage.clear())
+.then(localStorage.removeItem("nykonto"))
 .then (location.href = "/opretbruger.html")
-
-
  })
 
  document.getElementById("Logud").addEventListener("click", (e) => {

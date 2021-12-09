@@ -1,4 +1,6 @@
- //
+ //Ved klik oprettes en variabel, ved navn Nykonto. Den indeholder indstastede brugernavn og adgangskode i et objekt
+ //Den sendes i body af en FetchPost request. Hvor den er JSON.stringified, så serveren kan læse den.
+ //Modtages logind og får klienten en status besked tilbage, videreføres brugeren til logind.html
 document.getElementById("opret-bruger").addEventListener("click", (e) => { 
     e.preventDefault() 
     let brugernavnværdi = document.getElementById("bruger-Navn").value
@@ -7,7 +9,6 @@ document.getElementById("opret-bruger").addEventListener("click", (e) => {
         brugernavn: brugernavnværdi,
         adgangskode: adgangskodeværdi
     }
-console.log(nykonto)
 
 fetch('http://localhost:8080/konto', {
     method: "POST",
@@ -18,4 +19,4 @@ fetch('http://localhost:8080/konto', {
 }).then(response => response.json())
 .then(location.href = "/Logind.html")
 
- })
+})
