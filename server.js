@@ -6,8 +6,9 @@ const app = express();
 const fs = require('fs');
 
 const port = 8080
-app.listen(port, () => {
-    console.log("server listening on port" +  port);
+
+module.exports = app.listen(port, () => {
+  console.log("server listening on port" +  port);
 }); 
 
 app.get("/", (req, res) => {
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 //https://expressjs.com/en/starter/static-files.html
 app.use(express.static('./'))
 app.use('/', express.static('kategorier'))
-app.use('/', express.static('frontend'))
+app.use('/', express.static('essential'))
 
 
 //for at det er muligt at lave input til serveren i tekststreng
@@ -101,6 +102,7 @@ app.get("/annoncer", (req, res) => {
     let Stringlæsfil = JSON.stringify(læsJSONfil)
 
     res.status(200).json(Stringlæsfil)
+
 })
 
 
@@ -120,42 +122,23 @@ app.put("/edit", (req, res) => {
     fs.writeFileSync("ordredata.json", JSON.stringify(varerkatalog))
     res.status(200).json("hej")
     })
-
+    
 //slet annonce
-app.delete("/slet", (req, res) => {
-data = (req.body)
-console.log(data)
-res.status(200).json("Hej")
+app.post("/slet", (req, res) => {
 
-})
+  let varerkatalog = JSON.parse(fs.readFileSync('ordredata.json'))
 
-
-
-//Sletning af varer
-
-/*
-let sletvarer = document.getElementById("sletvarer")
-
-    sletvarer.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        let unikbillede = document.getElementById('sletbillede').value;
-        let unikbillede2 = JSON.stringify(unikbillede)
-        console.log(unikbillede)
-        console.log(typeof unikbillede)
-        console.log(typeof unikbillede2)
-        console.log(unikbillede2)
-
-        fetch('http://localhost:8080/slet', {
-        method: "DELETE",
-        headers: {
-        'content-Type': 'application/json'
-    },
-        body: unikbillede
-        }).then(response => response.json())
+    for (let i = 0; i < varerkatalog.length; i++) {
+        if(varerkatalog[i].billede == req.body.billede){
+         varerkatalog.splice(i,3)
+         
+    }}
+    fs.writeFileSync("ordredata.json", JSON.stringify(varerkatalog))
+    console.log(varerkatalog)
+    res.status(200).json()
+    
+    })
 
 
-})
 
-*/
 

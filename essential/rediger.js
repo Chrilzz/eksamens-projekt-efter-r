@@ -72,7 +72,49 @@ fetch("http://localhost:8080/edit", {
 })
 
 
-
-
 })
 
+
+
+
+//Sletning af varer
+let sletvarer = document.getElementById("sletvarer")
+
+    sletvarer.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let unikbillede = document.getElementById('sletbillede').value;
+        let unikbillede2 = JSON.stringify(unikbillede)
+        console.log(unikbillede)
+        console.log(typeof unikbillede)
+        console.log(typeof unikbillede2)
+        console.log(unikbillede2)
+
+        fetch('http://localhost:8080/slet', {
+        method: "POST",
+        headers: {
+        'content-Type': 'application/json'
+        },
+        body: unikbillede2
+        }).then(response => response.json())
+})
+
+/*
+fetch('http://localhost:8080/delete', {
+    method: "DELETE",
+    headers: {
+        'content-Type': 'application/json'
+    },
+    body: lars
+}).then(response => response.json())
+.then(localStorage.removeItem("nykonto"))
+.then (location.href = "/opretbruger.html")
+ })
+
+ document.getElementById("Logud").addEventListener("click", (e) => {
+    e.preventDefault()
+    localStorage.removeItem("nykonto")
+    return location.href = "/Logind.html"
+})
+ 
+*/
